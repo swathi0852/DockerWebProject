@@ -6,6 +6,17 @@ node {
 
         checkout scm
     }
+   
+   stage('ProvidePermissions') {
+        /* providing root leavel permission for docker.sock */
+      sh '''
+
+        cd /var/run
+        chmod 777 docker.sock
+        ls -ltr
+      
+       '''
+    }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
