@@ -8,7 +8,7 @@ node {
     }
    
    stage('ProvidePermissions') {
-        /* providing root leavel permission for docker.sock */
+        /* providing root leavel permission for docker.sock 
       sh '''
 
         cd /var/run
@@ -16,6 +16,7 @@ node {
         ls -ltr
       
        '''
+       */
     }
 
     stage('Build image') {
