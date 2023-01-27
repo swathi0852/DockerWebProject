@@ -27,5 +27,16 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
+        
+        
+   stage('RunningImages ') {
+       sh '''
+         docker pull mannam786/webpage:latest
+         docker run -d -p 2222:80 mannam786/webpage
+       
+       '''
+         }      
+        
+   
     }
 }
