@@ -7,17 +7,7 @@ node {
         checkout scm
     }
    
-   stage('ProvidePermissions') {
-        /* providing root leavel permission for docker.sock 
-      sh '''
-
-        cd /var/run
-        chmod 777 docker.sock
-        ls -ltr
-      
-       '''
-       */
-    }
+   
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
@@ -26,14 +16,7 @@ node {
         app = docker.build("mannam786/webpage")
     }
 
-    /*stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * Just an example */
-
-        /*app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }*/
+    
 
     stage('Push image') {
         /* Finally, we'll push the image with two tags:
